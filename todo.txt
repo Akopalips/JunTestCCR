@@ -1,0 +1,56 @@
+Сохранение в БД Новостей и их Типов.
+Новость должна иметь структуру:
+	Имя;
+	Краткое описание;
+	Полное описание;
+	Тип новости;
+Тип новостей должен иметь структуру:
+	Имя типа;
+	Цвет типа;
+Нужен функционал
+	CRUD новостей;
+	CRUD типов новостей;
+	Возможность получить список всех новостей (имя, краткое описание, тип новости – имя типа, цвет типа);
+	Возможность получить список новостей определенного типа;
+	Возможность получить список всех типов новостей.
+Для написания программы необходимо использовать Spring boot framework. Для работы с БД необходимо использовать spring-data-jpa.
+----------------------------------------------
+проверять наличие у новости типа, наличие id типа в таблице с типами
+добавить вывод новостей по типу
+сделать контейнер в docker
+добавить unit-тесты
+----------------------------------------------
+доступ и создание таблиц в psql
+
+psql -h localhost -U springentity -W -d springdb
+
+find / -name pg_hba.conf 2> /dev/null
+поменять md5 на password в строчке с нужным хостом
+
+create user springentity with login password 'pass';
+create database springdb;
+
+create table news (
+	name text not null,
+	type_id integer not null,
+	about_short text,
+	about_full text,
+	id bigserial primary key
+);
+
+create table news_type (
+	name text not null,
+	color text,
+	id bigserial primary key
+);
+----------------------------------------------
+примеры запросов
+
+curl -X POST http://localhost:8080/newsType/new -H "Content-type: application/json" -d '{"name":"1"}'
+
+curl -X GET http://localhost:8080/news/get/2
+
+curl -X PUT http://localhost:8080/news/update/2 -H "Content-type: application/json" -d '{"name":"Jinx"}'
+
+curl -X DELETE http://localhost:8080/news/del/1
+

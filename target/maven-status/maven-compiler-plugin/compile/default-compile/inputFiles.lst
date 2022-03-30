@@ -1,0 +1,14 @@
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/Tests.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/NewsTypeService.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/NewsType.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/NewsTypeRepository.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/AdvicesAndExceptions/TargetFoundException.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/AdvicesAndExceptions/TargetNotFoundAdvice.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/NewsTypeController.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/NewsRepository.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/NewsController.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/AdvicesAndExceptions/TargetNotFoundException.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/News.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/AdvicesAndExceptions/TargetFoundAdvice.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/Application.java
+/home/tuspring/IdeaProjects/SpringProjdb/src/main/java/SpringProj/EntityETC/NewsService.java
