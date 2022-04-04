@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class NewsTypeController {
 
-    @Qualifier("newsTypeService")
     @Autowired
     private NewsTypeService newsTypeService;
 
@@ -35,6 +34,13 @@ public class NewsTypeController {
         }
         return builder.toString();
     }
+
+    @GetMapping("/retakeFromDB")
+    public String getAllNewsTypeFromDB(){
+        newsTypeService.getMap(true);
+        return getAllNewsType();
+    }
+
 
     @GetMapping("/get/{id}")
     public String getNewsType(@PathVariable Long id) {

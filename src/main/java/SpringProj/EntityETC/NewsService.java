@@ -13,6 +13,7 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
+    //если typeId не найден в справочнике, обьект не создаёт но инкрементирует итератор id
     public News addNews(News news) {
         Long id = news.getId();
         if (id != null) {
@@ -32,13 +33,19 @@ public class NewsService {
     }
 
     public String updateById(Long id, News news) {
+        System.out.println(news);
         News newsFromDB = findById(id);
         String oldNewsString = newsFromDB.toString();
-        if (news.getId() != null && news.getId() != id) {
-            throw new TargetNotFoundException("News not found.");
+        if (news.getId() != null) {
+            try {
+                findById(news.getId());
+                throw new TargetFoundException("Id already used.");
+            } catch (TargetNotFoundException e) {}
+        }else{
+            news.setId(id);
         }
-        news.setId(id);
         news.consume(newsFromDB);
+        System.out.println(news);
         newsRepository.save(news);
         return oldNewsString;
     }

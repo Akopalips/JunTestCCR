@@ -32,7 +32,7 @@ create database springdb;
 
 create table news (
 	name text not null,
-	type_id integer not null,
+	type_id bigint not null references news_type(id) on delete restrict on update cascade,
 	about_short text,
 	about_full text,
 	id bigserial primary key

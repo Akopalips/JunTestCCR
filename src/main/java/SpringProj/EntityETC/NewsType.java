@@ -45,7 +45,7 @@ public class NewsType {
         builder.append("\"id\":").append(id);
         builder.append(", \"name\":\"").append(name).append('\"');
         builder.append(", \"color\":\"").append(color).append('\"');
-        builder.append('}');
+        builder.append("}");
         return builder.toString();
     }
 }

@@ -34,7 +34,9 @@ public class NewsTypeService {
         if (id != null) {
             throw new TargetFoundException("News should not have id.");
         }
-        return newsTypeRepository.save(newsType);
+        newsType = newsTypeRepository.save(newsType);
+        map.put(newsType.getId(), newsType);
+        return newsType;
     }
 
     //cache invalidation problem может найти удалённое значение
@@ -44,6 +46,7 @@ public class NewsTypeService {
 
     //cache invalidation problem может найти удалённое значение
     public NewsType findById(Long id) {
+
         if (getMap().containsKey(id)) {
             return getMap().get(id);
         }
@@ -68,6 +71,7 @@ public class NewsTypeService {
     public NewsType deleteById(Long id) {
         NewsType old = findById(id);
         newsTypeRepository.deleteById(id);
+        map.remove(id);
         return old;
     }
 }

@@ -73,7 +73,7 @@ public class News {
         sb.append(", \"aboutShort\":\"").append(aboutShort).append('\"');
         sb.append(", \"aboutFull\":\"").append(aboutFull).append('\"');
         sb.append(", \"typeId\":").append(typeId);
-        sb.append('}');
+        sb.append("}");
         return sb.toString();
     }
 }
