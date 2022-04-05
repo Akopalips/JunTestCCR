@@ -13,7 +13,6 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
-    //если typeId не найден в справочнике, обьект не создаёт но инкрементирует итератор id
     public News addNews(News news) {
         Long id = news.getId();
         if (id != null) {
@@ -56,4 +55,7 @@ public class NewsService {
         return old;
     }
 
+    public List<News> getByTypeId(Long typeId){
+        return newsRepository.findByTypeId(typeId);
+    }
 }

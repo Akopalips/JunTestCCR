@@ -48,4 +48,13 @@ public class NewsController {
     public String deleteNews(@PathVariable long id) {
         return newsService.deleteById(id) + " has been removed.";
     }
+
+    @GetMapping("/typeFilter/{typeId}")
+    public String getByTypeId(@PathVariable Long typeId){
+        StringBuilder builder = new StringBuilder();
+        for(News eachNews : newsService.getByTypeId(typeId)){
+            builder.append(eachNews).append("\n");
+        }
+        return builder.toString();
+    }
 }

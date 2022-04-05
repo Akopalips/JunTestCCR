@@ -1,4 +1,7 @@
 target/
+.idea/
+SpringProj.iml
+
 # Compiled class file
 *.class
 
@@ -12,7 +15,6 @@ target/
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
