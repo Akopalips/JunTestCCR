@@ -16,7 +16,7 @@ public class News {
     private String aboutShort = null;
     private String aboutFull = null;
 
-    private News() {}
+    public News() {}
 
     protected News(Long id, String name, Long typeId, String aboutShort, String aboutFull) {
         this.id = id;

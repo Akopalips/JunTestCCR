@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 class TargetFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(TargetNotFoundException.class)
+    @ExceptionHandler(TargetFoundException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     String targetFoundHandler(TargetNotFoundException e) {
         return e.getMessage();

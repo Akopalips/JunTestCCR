@@ -17,6 +17,7 @@ public class NewsController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/new")
     public String addNewsAsJson (@RequestBody News news) {
+        System.out.println(news);
         if (news.getName() == null || news.getTypeId() == null ){
             throw new TargetNotFoundException(
                     "Name or typeId is null. News was not created"

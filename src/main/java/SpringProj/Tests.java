@@ -1,13 +1,15 @@
 package SpringProj;
 
-import java.util.HashMap;
+import SpringProj.EntityETC.News;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+
 
 public class Tests {
     public static void main(String[] args) {
-        HashMap<Long, Long> map = null;
-        map.clear();
-        boolean t = false;
-
+        Tests main = new Tests();
+        System.out.println("Love to Powder".split("o", 3)[2]);
     }
 }
     // Exception encountered during context initialization - cancelling refresh attempt:
