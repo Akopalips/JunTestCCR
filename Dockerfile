@@ -1,10 +1,5 @@
-FROM azul/zulu-openjdk-alpine:11.0.12-11.50.19 as mvn-build
-WORKDIR /src
-COPY . .
-RUN ./mvnw -v
-RUN ./mvnw package
-
-FROM azul/zulu-openjdk-alpine:11.0.12-11.50.19-jre-headless
-COPY --from=mvn-build /src/target/SpringProj-0.0.1-SNAPSHOT.jar /app/SpringProj.jar
-EXPOSE 8080
-CMD java -Xmx2g -jar /app/SpringProj.jar
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+ARG SPRING_DATASOURCE_URL="postgresql://springdb:5432/springdb"
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

@@ -20,18 +20,17 @@ public class NewsTypeService {
         return getMap(false);
     }
     public HashMap<Long, NewsType> getMap(boolean force) {
-        if (force || NewsTypeService.map.isEmpty()) {
+        if (force || map.isEmpty()) {
             map.clear();
             for (NewsType each : newsTypeRepository.findAll()) {
-                NewsTypeService.map.put(each.getId(), each);
+                map.put(each.getId(), each);
             }
         }
-        return NewsTypeService.map;
+        return map;
     }
 
     public NewsType addNewsType(NewsType newsType) {
-        Long id = newsType.getId();
-        if (id != null) {
+        if (newsType.getId() != null) {
             throw new TargetFoundException("News should not have id.");
         }
         newsType = newsTypeRepository.save(newsType);

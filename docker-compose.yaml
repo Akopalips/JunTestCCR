@@ -13,14 +13,11 @@ services:
         environment:
             - POSTGRES_USER=springentity
             - POSTGRES_PASSWORD=pass
-            - POSTGRES_DB=springdb
-              #healthcheck:
-              #test: ["CMD-SHELL", "pg_isready -U springentity"]
-              #interval: 5s
-              #timeout: 5s
-              #retries: 5
+            - POSTGRES_DB=jdbc:springdb
         ports:
             - 5432:5432
+
+
     springproj:
         build:
             context: .
@@ -28,10 +25,8 @@ services:
         environment:
             - TZ=Asia/Krasnoyarsk
             - _JAVA_OPTIONS=-Dlogging.level.root=DEBUG
+            - SPRING_DATASOURCE_URL="jdbc:postgresql://postgres:5432/springdb"
         ports:
             - 8080:8080
-              #depends_on:
-              #postgres:
-              #  condition: service_healthy
         links:
             - postgres
