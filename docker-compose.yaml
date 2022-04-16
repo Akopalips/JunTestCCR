@@ -25,7 +25,7 @@ services:
         environment:
             - TZ=Asia/Krasnoyarsk
             - _JAVA_OPTIONS=-Dlogging.level.root=DEBUG
-            - SPRING_DATASOURCE_URL="jdbc:postgresql://postgres:5432/springdb"
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/springdb
         ports:
             - 8080:8080
         links:

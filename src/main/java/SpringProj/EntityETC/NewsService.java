@@ -14,8 +14,7 @@ public class NewsService {
     private NewsRepository newsRepository;
 
     public News addNews(News news) {
-        Long id = news.getId();
-        if (id != null) {
+        if (news.getId() != null) {
             throw new TargetFoundException("News should not have id.");
         }
         return newsRepository.save(news);
@@ -32,19 +31,13 @@ public class NewsService {
     }
 
     public String updateById(Long id, News news) {
-        System.out.println(news);
         News newsFromDB = findById(id);
         String oldNewsString = newsFromDB.toString();
         if (news.getId() != null) {
-            try {
-                findById(news.getId());
-                throw new TargetFoundException("Id already used.");
-            } catch (TargetNotFoundException e) {}
-        }else{
-            news.setId(id);
+            throw new TargetNotFoundException("Id cannot be modified");
         }
+        news.setId(id);
         news.consume(newsFromDB);
-        System.out.println(news);
         newsRepository.save(news);
         return oldNewsString;
     }

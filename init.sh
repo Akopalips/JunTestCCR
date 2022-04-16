@@ -1,4 +1,4 @@
-./mvnw package
 docker-compose up -d postgres
+./mvnw package
 docker-compose build springproj
-docker-compose up
+docker-compose up -d

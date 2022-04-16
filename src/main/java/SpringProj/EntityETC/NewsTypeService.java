@@ -58,8 +58,8 @@ public class NewsTypeService {
     public String updateById(Long id, NewsType newsType) {
         NewsType newsTypeFromDB = findById(id);
         String oldNewsTypeString = newsTypeFromDB.toString();
-        if (newsType.getId() != null && newsType.getId() != id) {
-            throw new TargetNotFoundException("NewsType not found.");
+        if (newsType.getId() != null) {
+            throw new TargetNotFoundException("Id cannot be modified");
         }
         newsType.setId(id);
         newsType.consume(newsTypeFromDB);
